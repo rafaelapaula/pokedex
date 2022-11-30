@@ -16,7 +16,7 @@ final class PokemonRepositoryTests: XCTestCase {
     }
     
     func testFechPokemonList() async {
-        pokemonRepository?.fechList { result in
+        pokemonRepository?.fetchList { result in
             switch result {
             case .success(let pokemons):
                 XCTAssertEqual(pokemons[0].name, "bulbasaur")
@@ -27,7 +27,7 @@ final class PokemonRepositoryTests: XCTestCase {
     }
     
     func testFechPokemonDetails() async {
-        pokemonRepository?.fechDetails(id: 10) { result in
+        pokemonRepository?.fetchDetails(id: 10) { result in
             switch result {
             case .success(let pokemon):
                 XCTAssertEqual(pokemon.name, "bulbasaur")

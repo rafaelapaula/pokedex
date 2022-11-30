@@ -8,13 +8,14 @@
 import Foundation
 
 protocol PokemonRepositoryProtocol {
-    
+    func fetchDetails(id: Int?, completion: @escaping (Result<PokemonResponse.DataClass.Pokemon, NSError>) -> Void)
+    func fetchList(completion: @escaping (Result<[PokemonListResponse.DataClass.Pokemon], NSError>) -> Void)
 }
 
 class PokemonRepository: PokemonRepositoryProtocol {
     let session = URLSession.shared
     
-    func fechDetails(id: Int?, completion: @escaping (Result<PokemonResponse.DataClass.Pokemon, NSError>) -> Void) {
+    func fetchDetails(id: Int?, completion: @escaping (Result<PokemonResponse.DataClass.Pokemon, NSError>) -> Void) {
         guard
             let request = URLRequest.pokemonGraphQL(body: Body.pokemon(with: id))
         else {
@@ -35,7 +36,7 @@ class PokemonRepository: PokemonRepositoryProtocol {
         task.resume()
     }
     
-    func fechList(completion: @escaping (Result<[PokemonListResponse.DataClass.Pokemon], NSError>) -> Void) {
+    func fetchList(completion: @escaping (Result<[PokemonListResponse.DataClass.Pokemon], NSError>) -> Void) {
         guard
             let request = URLRequest.pokemonGraphQL(body: Body.pokemonList())
         else {
@@ -45,13 +46,12 @@ class PokemonRepository: PokemonRepositoryProtocol {
         
         let task = session.pokemonListResponseTask(with: request) { pokemonListResponse, response, error in
             guard
-                let pokemonListResponse = pokemonListResponse
+                let pokemons = pokemonListResponse?.data?.pokemons
             else {
                 completion(.failure(NSError(domain: "Error parsing response", code: 0)))
                 return
             }
-            let pokemons = pokemonListResponse.data?.pokemons
-            completion(.success(pokemons ?? []))
+            completion(.success(pokemons))
             
         }
         task.resume()
