@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		131AD29C2931310B00DB77B9 /* PokemonResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131AD29B2931310B00DB77B9 /* PokemonResponse.swift */; };
 		13C5F9B8292E933B009CDC95 /* PokedexApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C5F9B7292E933B009CDC95 /* PokedexApp.swift */; };
 		13C5F9BA292E933B009CDC95 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C5F9B9292E933B009CDC95 /* ContentView.swift */; };
 		13C5F9BC292E933D009CDC95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13C5F9BB292E933D009CDC95 /* Assets.xcassets */; };
@@ -18,7 +19,7 @@
 		13C5F9E7292EA8FC009CDC95 /* PokemonRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C5F9E6292EA8FC009CDC95 /* PokemonRepository.swift */; };
 		13C5F9EA292EA977009CDC95 /* URLSession+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C5F9E9292EA977009CDC95 /* URLSession+Extension.swift */; };
 		13C5F9EC292EAC8F009CDC95 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C5F9EB292EAC8F009CDC95 /* Constants.swift */; };
-		13C5F9EE292EAE5B009CDC95 /* Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C5F9ED292EAE5B009CDC95 /* Payload.swift */; };
+		13C5F9EE292EAE5B009CDC95 /* Body.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C5F9ED292EAE5B009CDC95 /* Body.swift */; };
 		13C5F9F3292EB20D009CDC95 /* PokemonRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C5F9F2292EB20D009CDC95 /* PokemonRepositoryTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		131AD29B2931310B00DB77B9 /* PokemonResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonResponse.swift; sourceTree = "<group>"; };
 		13C5F9B4292E933B009CDC95 /* Pokedex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pokedex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13C5F9B7292E933B009CDC95 /* PokedexApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexApp.swift; sourceTree = "<group>"; };
 		13C5F9B9292E933B009CDC95 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -54,7 +56,7 @@
 		13C5F9E6292EA8FC009CDC95 /* PokemonRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonRepository.swift; sourceTree = "<group>"; };
 		13C5F9E9292EA977009CDC95 /* URLSession+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Extension.swift"; sourceTree = "<group>"; };
 		13C5F9EB292EAC8F009CDC95 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		13C5F9ED292EAE5B009CDC95 /* Payload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Payload.swift; sourceTree = "<group>"; };
+		13C5F9ED292EAE5B009CDC95 /* Body.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Body.swift; sourceTree = "<group>"; };
 		13C5F9F2292EB20D009CDC95 /* PokemonRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonRepositoryTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -156,7 +158,8 @@
 			isa = PBXGroup;
 			children = (
 				13C5F9E2292EA83A009CDC95 /* PokemonListResponse.swift */,
-				13C5F9ED292EAE5B009CDC95 /* Payload.swift */,
+				131AD29B2931310B00DB77B9 /* PokemonResponse.swift */,
+				13C5F9ED292EAE5B009CDC95 /* Body.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -323,8 +326,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				131AD29C2931310B00DB77B9 /* PokemonResponse.swift in Sources */,
 				13C5F9E3292EA83A009CDC95 /* PokemonListResponse.swift in Sources */,
-				13C5F9EE292EAE5B009CDC95 /* Payload.swift in Sources */,
+				13C5F9EE292EAE5B009CDC95 /* Body.swift in Sources */,
 				13C5F9EA292EA977009CDC95 /* URLSession+Extension.swift in Sources */,
 				13C5F9BA292E933B009CDC95 /* ContentView.swift in Sources */,
 				13C5F9B8292E933B009CDC95 /* PokedexApp.swift in Sources */,

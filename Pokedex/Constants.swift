@@ -9,7 +9,7 @@ import Foundation
 
 struct Constants {
     struct Url {
-        static let PokemonList = "https://beta.pokeapi.co/graphql/v1beta"
+        static let Pokemon = "https://beta.pokeapi.co/graphql/v1beta"
     }
     
     struct HttpMethod {

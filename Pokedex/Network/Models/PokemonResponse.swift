@@ -1,19 +1,19 @@
 //
-//  PokemonListResponse.swift
+//  PokemonResponse.swift
 //  Pokedex
 //
-//  Created by rafaela.lourenco on 23/11/22.
+//  Created by rafaela.lourenco on 25/11/22.
 //
 
 import Foundation
 
-// MARK: - PokemonListResponse
-struct PokemonListResponse: Codable, Hashable {
+// MARK: - PokemonResponse
+struct PokemonResponse: Codable, Hashable {
     let data: DataClass?
     
     // MARK: - DataClass
     struct DataClass: Codable, Hashable {
-        let pokemons: [Pokemon]?
+        let pokemon: Pokemon?
         
         // MARK: - Pokemon
         struct Pokemon: Codable, Hashable {
@@ -22,7 +22,7 @@ struct PokemonListResponse: Codable, Hashable {
         }
 
         enum CodingKeys: String, CodingKey {
-            case pokemons = "pokemon_v2_pokemon"
+            case pokemon = "pokemon_v2_pokemon_by_pk"
         }
     }
 }
