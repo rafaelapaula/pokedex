@@ -16,7 +16,7 @@ class PokemonRepository: PokemonRepositoryProtocol {
     
     func fechDetails(id: Int?, completion: @escaping (Result<PokemonResponse.DataClass.Pokemon, NSError>) -> Void) {
         guard
-            let request = createRequest(body: Body.pokemon(with: id))
+            let request = URLRequest.pokemonGraphQL(body: Body.pokemon(with: id))
         else {
             completion(.failure(NSError(domain: "Error creating URL", code: 0)))
             return
@@ -37,7 +37,7 @@ class PokemonRepository: PokemonRepositoryProtocol {
     
     func fechList(completion: @escaping (Result<[PokemonListResponse.DataClass.Pokemon], NSError>) -> Void) {
         guard
-            let request = createRequest(body: Body.pokemonList())
+            let request = URLRequest.pokemonGraphQL(body: Body.pokemonList())
         else {
             completion(.failure(NSError(domain: "Error creating URL", code: 0)))
             return
@@ -55,22 +55,6 @@ class PokemonRepository: PokemonRepositoryProtocol {
             
         }
         task.resume()
-    }
-    
-    func createRequest(body: Data?) -> URLRequest? {
-        guard
-            let url = URL(string: Constants.Url.Pokemon),
-            let body = body
-        else {
-            return nil
-        }
-        var request = URLRequest(url: url)
-        request.httpMethod = Constants.HttpMethod.Post
-        request.httpBody = body
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("graphiql", forHTTPHeaderField: "X-Method-Used")
-        
-        return request
     }
 }
 

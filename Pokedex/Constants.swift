@@ -15,4 +15,9 @@ struct Constants {
     struct HttpMethod {
         static let Post = "POST"
     }
+    
+    struct Parameters {
+        static let ContentType = (value: "application/json", field: "Content-Type")
+        static let XMethodUsed = (value: "graphiql", field: "X-Method-Used")
+    }
 }

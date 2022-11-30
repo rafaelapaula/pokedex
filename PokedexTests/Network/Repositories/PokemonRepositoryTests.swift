@@ -15,35 +15,25 @@ final class PokemonRepositoryTests: XCTestCase {
         pokemonRepository = PokemonRepository()
     }
     
-    func testFechPokemonList() {
-        let expectation = XCTestExpectation(description: "Pokemon List Received")
-        
+    func testFechPokemonList() async {
         pokemonRepository?.fechList { result in
             switch result {
             case .success(let pokemons):
                 XCTAssertEqual(pokemons[0].name, "bulbasaur")
-                expectation.fulfill()
             default:
                 break
             }
         }
-        
-        wait(for: [expectation], timeout: 1)
     }
     
-    func testFechPokemonDetails() {
-        let expectation = XCTestExpectation(description: "Pokemon Details Received")
-        
+    func testFechPokemonDetails() async {
         pokemonRepository?.fechDetails(id: 10) { result in
             switch result {
             case .success(let pokemon):
                 XCTAssertEqual(pokemon.name, "bulbasaur")
-                expectation.fulfill()
             default:
                 break
             }
         }
-        
-        wait(for: [expectation], timeout: 4)
     }
 }
