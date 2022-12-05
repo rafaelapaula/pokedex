@@ -17,9 +17,12 @@ struct PokemonListView: View {
     }
     
     var success: some View {
-        ZStack {
-            List(viewModel.pokemons) { pokemon in
-                PokemonRowView(pokemon: pokemon)
+        GeometryReader { metrics in
+            ZStack {
+                List(viewModel.pokemons) { pokemon in
+                    PokemonRowView(pokemon: pokemon)
+                        .frame(height: metrics.size.height * 0.25)
+                }
             }
         }
     }

@@ -10,6 +10,7 @@ import Foundation
 struct Constants {
     struct Url {
         static let Pokemon = "https://beta.pokeapi.co/graphql/v1beta"
+        static let Sprite = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/"
     }
     
     struct HttpMethod {

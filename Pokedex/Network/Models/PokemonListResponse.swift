@@ -19,6 +19,11 @@ struct PokemonListResponse: Codable, Hashable {
         struct Pokemon: Codable, Hashable, Identifiable {
             let id: Int?
             let name: String?
+            
+            func imageUrl() -> URL? {
+                guard let id = id else { return nil }
+                return URL(string: "\(Constants.Url.Sprite)\(id).png")
+            }
         }
 
         enum CodingKeys: String, CodingKey {

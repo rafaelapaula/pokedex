@@ -13,7 +13,20 @@ struct PokemonRowView: View {
     var pokemon: PokemonRow
 
     var body: some View {
-        Text(pokemon.name ?? "")
+        GeometryReader { metrics in
+            HStack {
+                Text(pokemon.name ?? "")
+                    .font(.title)
+                    .fontWeight(.light)
+                Spacer()
+                AsyncImage(url: pokemon.imageUrl()) { phase in
+                    phase.image?
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: metrics.size.width * 0.55)
+                }
+            }
+        }
     }
 }
 
