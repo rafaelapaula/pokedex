@@ -16,3 +16,9 @@ struct PokemonRowView: View {
         Text(pokemon.name ?? "")
     }
 }
+
+struct PokemonRowView_Previews: PreviewProvider {
+    static var previews: some View {
+        PokemonRowView(pokemon: PokemonRow(id: 9, name: "Pokemom"))
+    }
+}

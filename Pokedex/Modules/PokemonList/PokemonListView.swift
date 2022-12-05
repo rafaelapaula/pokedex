@@ -18,9 +18,9 @@ struct PokemonListView: View {
     
     var success: some View {
         ZStack {
-//            List(viewModel.pokemons) { item in
-//                PokemonRowView(pokemon: item)
-//            }
+            List(viewModel.pokemons) { pokemon in
+                PokemonRowView(pokemon: pokemon)
+            }
         }
     }
     
