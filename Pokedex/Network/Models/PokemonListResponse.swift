@@ -7,8 +7,6 @@
 
 import Foundation
 
-typealias PokemonItem = PokemonListResponse.DataClass.Pokemon
-
 // MARK: - PokemonListResponse
 struct PokemonListResponse: Codable, Hashable {
     let data: DataClass?
@@ -18,7 +16,7 @@ struct PokemonListResponse: Codable, Hashable {
         let pokemons: [Pokemon]?
         
         // MARK: - Pokemon
-        struct Pokemon: Codable, Hashable {
+        struct Pokemon: Codable, Hashable, Identifiable {
             let id: Int?
             let name: String?
         }

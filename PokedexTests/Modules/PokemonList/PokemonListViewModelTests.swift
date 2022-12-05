@@ -25,7 +25,7 @@ final class PokemonListViewModelTests: XCTestCase {
     }
 
     func testFetchListSucceed() async {
-        let pokemonsMock = [PokemonItem(id: 0, name: "Test")]
+        let pokemonsMock = [PokemonRow(id: 0, name: "Test")]
         repositoryMock?.fetchListToReturn = .success(pokemonsMock)
         viewModel?.fetch()
         

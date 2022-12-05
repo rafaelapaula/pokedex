@@ -13,7 +13,7 @@ protocol PokemonListViewModelProtocol {
 
 class PokemonListViewModel: ObservableObject, PokemonListViewModelProtocol {
     
-    @Published var pokemons: [PokemonItem] = []
+    @Published var pokemons: [PokemonRow] = []
     @Published var state: State = .loading
     
     var repository: PokemonRepositoryProtocol = PokemonRepository()
