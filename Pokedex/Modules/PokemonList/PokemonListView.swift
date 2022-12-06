@@ -22,7 +22,7 @@ struct PokemonListView: View {
                 List(viewModel.pokemons) { pokemon in
                     PokemonRowView(pokemon: pokemon)
                         .listRowSeparator(.hidden)
-                        .frame(height: metrics.size.height * 0.25)
+                        .frame(height: metrics.size.height * 0.2)
                 }
             }
         }

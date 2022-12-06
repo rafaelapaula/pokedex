@@ -10,7 +10,7 @@ import SwiftUI
 typealias PokemonRow = PokemonListResponse.DataClass.Pokemon
 
 struct PokemonRowViewConstants {
-    static let backgroundCornerRadius = 20.0
+    static let backgroundCornerRadius = 10.0
     static let informationPadding = 8.0
 }
 
@@ -22,13 +22,14 @@ struct PokemonRowView: View {
         GeometryReader { metrics in
             ZStack(alignment: .leading) {
                 RoundedRectangle(cornerRadius: constants.backgroundCornerRadius)
-                    .fill(.gray)
-                
+                    .fill(Color("GrassElement"))
+                    
                 VStack(alignment: .leading) {
                     HStack {
-                        Text(pokemon.name ?? "")
+                        Text(pokemon.name?.capitalized ?? "")
                             .font(.title)
-                            .fontWeight(.light)
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
                         Spacer()
                     }
                 }
@@ -46,7 +47,9 @@ struct PokemonRowView: View {
                         
                     }
                 }
-            }.padding(rowPadding(metrics))
+            }
+            .padding([.leading, .trailing], rowHorizontalPadding(metrics))
+            .padding([.top, .bottom], rowHorizontalPadding(metrics))
         }
     }
 }
@@ -64,19 +67,23 @@ extension PokemonRowView {
         metrics.size.width * 0.45
     }
     
-    func rowPadding(_ metrics: GeometryProxy) -> CGFloat {
-        metrics.size.width * 0.05
+    func rowHorizontalPadding(_ metrics: GeometryProxy) -> CGFloat {
+        metrics.size.width * 0.025
+    }
+    
+    func rowVerticalPadding(_ metrics: GeometryProxy) -> CGFloat {
+        metrics.size.height * 0.1
     }
     
     func informationWidth(_ metrics: GeometryProxy) -> CGFloat {
-        metrics.size.width * 0.45
+        metrics.size.width * 0.5
     }
 }
 
 struct PokemonRowView_Previews: PreviewProvider {
     static var previews: some View {
         GeometryReader { metrics in
-            PokemonRowView(pokemon: PokemonRow(id: 9, name: "Pokemom"))
+            PokemonRowView(pokemon: PokemonRow(id: 9, name: "pokemom"))
                 .frame(height: 300)
                 .clipped()
         }
